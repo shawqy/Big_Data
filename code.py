@@ -1,57 +1,34 @@
-import pandas as pd
-import numpy as np
-import itertools as itr
-import pprint
+# importing helping files
+import Data_preprocessing as Dp
+import support as s
+import globals_values as g
+import assoc_rule as ar
 
-''' 
-read_data_from_txt function 
-input : file_path 
-        sep_by ==> how the data is separated in the txt file
-return : the data frame which we will work on
-'''
+# taking inputs from user
+support = eval(input('Enter Min. Support as fraction "Ex 0.1": '))
+confidence = eval(input('Enter Min. confidence as fraction "Ex 0.1": '))
+Starting_index = eval(input('Enter The Starting Index: '))
+# read the data form the text file
+# by default the file is ticdata2000.txt
+our_data_frame = Dp.read_data_from_txt()
 
-
-def read_data_from_txt(file_path='data_set.txt', sep_by='\t'):
-    df = pd.read_csv(file_path, delimiter=sep_by)
-    return df
-
-
-''' 
-select_col function 
-input : data_frame
-        col_name ==> column name which we want to separate
-return : array containing the data of column
-'''
-
-
-def select_col(data_frame, col_name):
-    col_data = []
-    for temp in data_frame[col_name]:
-        col_data.append(temp)
-    return col_data
-
-
-''' 
-get_unique_without_zero function 
-input :array
-return : array containing the data unique element without zero
-'''
-
-
-def get_unique_without_zero(array):
-    col_unique = list(dict.fromkeys(array))
-    if col_unique.count(0) > 0:
-        col_unique.remove(0)
-    return col_unique
-
-
-# testing function
-our_data_frame = read_data_from_txt()
+# printing the read data
 print(our_data_frame)
-print((our_data_frame.head(0)))
 
-col = select_col(our_data_frame, 'MBERARBG Skilled labourers')
-print(col)
-col_u = get_unique_without_zero(col)
-print(col_u)
+# specify the set of data we want work with
+our_data_set = Dp.split_data_with_index(our_data_frame, Starting_index)
 
+# printing this set
+print(our_data_set)
+
+# append column index to each value
+data = Dp.append_col_index(our_data_set)
+
+# printing the previous result
+print(data)
+
+# calculate support
+s.data_set_support(data, support)
+
+# print support
+print(g.final_item_counts)
