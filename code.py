@@ -2,7 +2,7 @@
 import Data_preprocessing as Dp
 import support as s
 import globals_values as g
-import assoc_rule as ar
+
 
 # taking inputs from user
 support = eval(input('Enter Min. Support as fraction "Ex 0.1": '))
