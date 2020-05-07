@@ -22,13 +22,13 @@ def process(finalDic, dic):
         support = finalDic[x]
         lvl = str(x).count(',') + 1
         tempArray = (str(x).split(','))
-        parameterArrayString = []
-        for y in tempArray:
-            parameterArrayString += y.split('_')
-        parameterArrayInt = [int(i) for i in parameterArrayString]
+        parameterArrayString = tempArray
+        # for y in tempArray:
+        #     parameterArrayString += y.split('_')
+        # parameterArrayInt = [int(i) for i in parameterArrayString]
 
         print("level is " + str(lvl))
-        print("parameters are " + str(parameterArrayInt))
+        print("parameters are " + str(parameterArrayString))
         print("support is " + str(support))
 
         # confidence function call

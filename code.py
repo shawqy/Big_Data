@@ -2,7 +2,7 @@
 import Data_preprocessing as Dp
 import support as s
 import globals_values as g
-
+import prepare as p
 
 # taking inputs from user
 support = eval(input('Enter Min. Support as fraction "Ex 0.1": '))
@@ -31,10 +31,6 @@ print(data)
 s.data_set_support(data, support)
 
 # print support
-<<<<<<< HEAD
 finalItems = g.final_item_counts
 print(g.final_item_counts)
 p.process(finalItems, p.finalSupport(finalItems))
-=======
-print(g.final_item_counts)
->>>>>>> parent of 5cc6b87... prepareData
