@@ -27,5 +27,9 @@ def process(finalDic, dic):
             parameterArrayString += y.split('_')
         parameterArrayInt = [int(i) for i in parameterArrayString]
 
+        print("level is " + str(lvl))
+        print("parameters are " + str(parameterArrayInt))
+        print("support is " + str(support))
+
         # confidence function call
         # confidence(lvl, parameterArrayInt, support, dic)

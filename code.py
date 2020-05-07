@@ -33,4 +33,4 @@ s.data_set_support(data, support)
 # print support
 finalItems = g.final_item_counts
 print(g.final_item_counts)
-p.process(p.finalSupport(finalItems))
+p.process(finalItems, p.finalSupport(finalItems))
