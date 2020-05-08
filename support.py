@@ -21,8 +21,8 @@ def data_set_support(data_col, support, previous_item_sets=[], support_lvl=1):
             for rw_id in range(data_col.shape[0]):
                 val = data_col[rw_id][col_id]
                 # if the value is 0 skip it
-                if val.find('0_') == 0:
-                    continue
+                # if val.find('0_') == 0:
+                    # continue
                 if val in item_sets_count.keys():
                     item_sets_count[val] += 1
                 else:
