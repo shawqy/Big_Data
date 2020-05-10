@@ -2,11 +2,11 @@
 import Data_preprocessing as Dp
 import support as s
 import globals_values as g
-
+import prepare as p
 
 # taking inputs from user
-support = eval(input('Enter Min. Support as fraction "Ex 0.1": '))
-confidence = eval(input('Enter Min. confidence as fraction "Ex 0.1": '))
+Min_support = eval(input('Enter Min. Support as fraction "Ex 0.1": '))
+Min_confidence = eval(input('Enter Min. confidence as fraction "Ex 0.1": '))
 Starting_index = eval(input('Enter The Starting Index: '))
 # read the data form the text file
 # by default the file is ticdata2000.txt
@@ -28,7 +28,9 @@ data = Dp.append_col_index(our_data_set)
 print(data)
 
 # calculate support
-s.data_set_support(data, support)
+s.data_set_support(data, Min_support)
 
 # print support
+finalItems = g.final_item_counts
 print(g.final_item_counts)
+p.process(finalItems, p.finalSupport(finalItems),Min_confidence)
